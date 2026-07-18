@@ -335,17 +335,17 @@ class FlxDefines
 			abort(errorMessage, (macro null).pos);
 	}
 
-	static inline function definedValue(define:Dynamic):String
+	public static inline function definedValue(define:Dynamic):String
 	{
 		return Context.definedValue(Std.string(define));
 	}
 	
-	static inline function defined(define:Dynamic)
+	public static inline function defined(define:Dynamic)
 	{
 		return Context.defined(Std.string(define));
 	}
 
-	static inline function define(define:Dynamic, ?value:String)
+	public static inline function define(define:Dynamic, ?value:String)
 	{
 		Compiler.define(Std.string(define), value);
 	}

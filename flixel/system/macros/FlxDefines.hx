@@ -66,6 +66,7 @@ private enum UserDefines
 	 * Used to make the debug windows bigger
 	 */
 	FLX_DEBUGGER_SCALE;
+	MFLX_NO_SPRITE_SCALE_QOL;
 }
 
 /**
@@ -115,6 +116,7 @@ private enum HelperDefines
 	/** The normalized, absolute path of `FLX_CUSTOM_ASSETS_DIRECTORY`, used internally */
 	FLX_CUSTOM_ASSETS_DIRECTORY_ABS;
 	FLX_NO_DEFAULT_SOUND_EXT;
+	MFLX_SPRITE_SCALE_QOL;
 }
 
 class FlxDefines
@@ -222,6 +224,7 @@ class FlxDefines
 			define(FLX_HEALTH_NOT_DEFINED);
 			define(FLX_HEALTH);
 		}
+		defineInversion(MFLX_SPRITE_SCALE_QOL, MFLX_NO_SPRITE_SCALE_QOL);
 	}
 
 	static function defineHelperDefines()

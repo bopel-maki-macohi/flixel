@@ -383,6 +383,9 @@ class FlxSprite extends FlxObject
 		useFramePixels = FlxG.renderBlit;
 		if (SimpleGraphic != null)
 			loadGraphic(SimpleGraphic);
+		#if MFLX_SPRITE_SCALE_QOL
+		setScale(defaultScale?.x, defaultScale?.y);
+		#end
 	}
 
 	@:noCompletion
@@ -1728,6 +1731,26 @@ class FlxSprite extends FlxObject
 		}
 		return doFlipY;
 	}
+	#if MFLX_SPRITE_SCALE_QOL
+	/**
+	 * Default scale for new FlxSprites
+	 */
+	public static var defaultScale:FlxPoint = new FlxPoint(1, 1);
+	
+	function setScale(?X:Null<Float>, ?Y:Null<Float>):Void
+	{
+		switch ([X, Y])
+		{
+			case [null, null]:
+			case [_, null]:
+				this.scale.set(X, X);
+			case [null, _]:
+				this.scale.set(Y, Y);
+			case [_, _]:
+				this.scale.set(X, Y);
+		}
+	}
+	#end
 }
 
 interface IFlxSprite extends IFlxBasic
@@ -1751,4 +1774,7 @@ interface IFlxSprite extends IFlxBasic
 
 	function reset(X:Float, Y:Float):Void;
 	function setPosition(X:Float = 0, Y:Float = 0):Void;
+	#if MFLX_SPRITE_SCALE_QOL
+	function setScale(X:Null<Float>, Y:Null<Float>):Void;
+	#end
 }

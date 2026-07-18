@@ -227,7 +227,8 @@ class FlxDefines
 			define(FLX_HEALTH_NOT_DEFINED);
 			define(FLX_HEALTH);
 		}
-		defineInversion(MFLX_SPRITE_SCALE_QOL, MFLX_NO_SPRITE_SCALE_QOL);
+		if (!defined(MFLX_SPRITE_SCALE_QOL))
+			define(MFLX_NO_SPRITE_SCALE_QOL);
 	}
 
 	static function defineHelperDefines()
